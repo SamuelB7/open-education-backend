@@ -16,6 +16,7 @@ datasource db {
 model User {
     id        String   @id @default(uuid())
     email     String   @unique
+    password  String
     name      String?
     role      String   @default("STUDENT")
     createdAt DateTime @default(now())
