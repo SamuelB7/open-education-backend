@@ -21,7 +21,7 @@ export class CreateUserDto {
         type: String,
         required: false,
     })
-    name: string;
+    name?: string;
 
     @ApiProperty({
         enum: ['ADMIN', 'TEACHER', 'STUDENT'],
@@ -29,5 +29,5 @@ export class CreateUserDto {
         type: String,
         required: false,
     })
-    role: UserRole;
+    role?: UserRole;
 }
