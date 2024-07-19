@@ -9,28 +9,28 @@ export class UserService {
         private prismService: PrismaService,
     ) { }
 
-    create(createUserDto: CreateUserDto) {
-        return this.prismService.user.create({
+    async create(createUserDto: CreateUserDto) {
+        return await this.prismService.user.create({
             data: {
                 ...createUserDto
             },
         });
     }
 
-    findAll() {
-        return this.prismService.user.findMany();
+    async findAll() {
+        return await this.prismService.user.findMany();
     }
 
-    findOne(id: string) {
-        return this.prismService.user.findUnique({
+    async findOne(id: string) {
+        return await this.prismService.user.findUnique({
             where: {
                 id
             }
         });
     }
 
-    update(id: string, updateUserDto: UpdateUserDto) {
-        return this.prismService.user.update({
+    async update(id: string, updateUserDto: UpdateUserDto) {
+        return await this.prismService.user.update({
             where: {
                 id
             },
@@ -40,8 +40,8 @@ export class UserService {
         });
     }
 
-    remove(id: string) {
-        return this.prismService.user.delete({
+    async remove(id: string) {
+        return await this.prismService.user.delete({
             where: {
                 id
             }

@@ -24,18 +24,18 @@ export class CourseController {
     @ApiOperation({ summary: 'Get a course by ID' })
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return this.courseService.findOne(+id);
+        return this.courseService.findOne(id);
     }
 
     @ApiOperation({ summary: 'Update a course by ID' })
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
-        return this.courseService.update(+id, updateCourseDto);
+        return this.courseService.update(id, updateCourseDto);
     }
 
     @ApiOperation({ summary: 'Delete a course by ID' })
     @Delete(':id')
     remove(@Param('id') id: string) {
-        return this.courseService.remove(+id);
+        return this.courseService.remove(id);
     }
 }
