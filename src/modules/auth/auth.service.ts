@@ -54,7 +54,8 @@ export class AuthService {
 
             const user = await this.prisma.user.create({
                 data: {
-                    ...data
+                    ...data,
+                    password: passwordHash
                 }
             })
 
@@ -62,7 +63,7 @@ export class AuthService {
                 id: user.id,
                 name: user.name,
                 email: user.email,
-                role: user.role,
+                role: user.role
             }
 
             return {
@@ -78,6 +79,7 @@ export class AuthService {
                     throw new Error('Email already exists');
                 }
             }
+            console.error(error)
             throw new Error('Internal server error');
         }
     }
